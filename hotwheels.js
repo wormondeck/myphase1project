@@ -48,6 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function carButtons() {
+    const carDopeButton = document.createElement('button');
+        carDopeButton.textContent = 'dope';
 
-    
+    const dopeCountSpan = document.createElement('span');
+        dopeCountSpan.textContent = '0 hope  ';
+
+    let dopeCount = 0;
+
+    carButton.addEventListener('click', function () {
+        dopeCount++;
+        dopeCountSpan.textContent = dopeCount === 1 ? '1 dope ' : `${dopeCount} dope`;
+
+                   
+    })
+
 }
