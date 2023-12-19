@@ -9,7 +9,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(data.car)
                 const carListContainer = document.getElementById('car-container');
                 carListContainer.innerHTML = '';
+
+                data.car.forEach(car => {
+
+                    const carDiv = document.createElement('div');
+                    carDiv.classList.add('car');
+            
+                    const carColor = document.createElement('p');
+                    carColor.textContent = `Color: ${car.color}`;
+            
+                    const carYear = document.createElement('p');
+                    carYear.textContent = `Year: ${car.year}`;
+            
+                    const carBrand = document.createElement('p');
+                    carBrand.textContent = `Brand: ${car.brand}`;
+            
+                    const carImage = document.createElement('img');
+                    carImage.src = car.image;
+
+                    const carName = document.createElement('p');
+                    carName.textContent = `${car.name}`;
+
+                    carDiv.appendChild(carName);
+                    carDiv.appendChild(carImage);
+                    carDiv.appendChild(carColor);
+                    carDiv.appendChild(carYear);
+                    carDiv.appendChild(carBrand);
+                    carButtons(carDiv)
+                    
+                    carListContainer.appendChild(carDiv);
+
+                })
+
+
             }
         })
     }
 })
+
+function carButtons() {
+
+    
+}
