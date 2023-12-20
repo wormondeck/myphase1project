@@ -59,8 +59,10 @@ function carButtons(parentElement) {
     carDopeButton.addEventListener('click', function () {
         dopeCount++;
         dopeCountSpan.textContent = dopeCount === 1 ? '1 dope ' : `${dopeCount} dope`;
-        let dopeCount = 0;
+    
                    
     })
+
+    parentElement.appendChild(dopeCountSpan);
     parentElement.appendChild(carDopeButton);
 }
