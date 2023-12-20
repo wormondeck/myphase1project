@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function carButtons(parentElement) {
+    
     const carDopeButton = document.createElement('button');
         carDopeButton.textContent = 'dope';
 
@@ -63,6 +64,23 @@ function carButtons(parentElement) {
                    
     })
 
+    const carNopeButton = document.createElement("button")
+        carNopeButton.textContent = "nope"
+
+    const nopeCountSpan = document.createElement('span');
+        nopeCountSpan.textContent = '  0 hope';
+
+    let nopeCount = 0;
+
+    carNopeButton.addEventListener('click', function () {
+        nopeCount++;
+        nopeCountSpan.textContent = nopeCount === 1 ? ' 1 nope' : `${nopeCount} nope`;
+
+                    
+    });
+
     parentElement.appendChild(dopeCountSpan);
     parentElement.appendChild(carDopeButton);
+    parentElement.appendChild(carNopeButton);
+    parentElement.appendChild(nopeCountSpan);
 }
