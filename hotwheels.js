@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(data.car)
                 const carListContainer = document.getElementById('car-container');
                 carListContainer.innerHTML = '';
-
+                
                 data.car.forEach(car => {
 
                     const carDiv = document.createElement('div');
                     carDiv.classList.add('car');
+                    carDiv.draggable = true; 
             
                     const carColor = document.createElement('p');
                     carColor.textContent = `Color: ${car.color}`;
@@ -30,6 +31,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     const carName = document.createElement('p');
                     carName.textContent = `${car.name}`;
 
+                    function dragCars() {
+                    
+                        carDiv.addEventListener('dragstart', function (event) {
+                            //able to drag photos but not drop
+                            event.dataTransfer.setData('text/plain', carName.textContent);
+                        });
+                    
+                        carDiv.addEventListener('dragover', function (event) {
+                            event.preventDefault(); 
+                        });
+                    
+                        carDiv.addEventListener('dragenter', function () {
+                            carDiv.classList.add('dragged-over'); 
+                        });
+                    
+                        carDiv.addEventListener('dragleave', function () {
+                            carDiv.classList.remove('dragged-over'); 
+                        });
+                    
+                        carDiv.addEventListener('drop', function (event) {
+                            event.preventDefault();
+                    
+                            const draggedCarName = event.dataTransfer.getData('text/plain');
+                    
+                            
+                            const draggedCarElement = Array.from(carListContainer.children).find(element =>
+                                element.classList.contains('car') && element.querySelector('p').textContent === draggedCarName
+                            );
+                    
+                            
+                            if (draggedCarElement && draggedCarElement !== carDiv) {
+                                const container = carDiv.parentNode;
+                                const nextSibling = carDiv.nextSibling === draggedCarElement ? carDiv : carDiv.nextSibling;
+                                container.insertBefore(draggedCarElement, nextSibling);
+                            }
+                            
+                            carDiv.classList.remove('dragged-over');
+                        });
+                    
+                    }
+
+                    dragCars()
 
                     function createMouseOver(element) {
                         return function () {
@@ -55,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     carButtons(carDiv)
                     
                     carListContainer.appendChild(carDiv);
+
+                   
 
                 })
 
@@ -102,15 +147,3 @@ function carButtons(parentElement) {
     parentElement.appendChild(nopeCountSpan);
 }
 
-function dragCars() {
-
-    carDiv.addEventListener('dragstart', function (event) {
-        //able to drag photos but not drop
-        event.dataTransfer.setData('text/plain', carName.textContent);
-    });
-
-    carDiv.addEventListener('dragover', function (event) {
-        event.preventDefault(); // Prevent default to allow drop
-    });
-
-}
