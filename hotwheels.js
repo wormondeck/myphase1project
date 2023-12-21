@@ -30,6 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     const carName = document.createElement('p');
                     carName.textContent = `${car.name}`;
 
+
+                    function createMouseOverHandler(element) {
+                        return function () {
+                            element.style.color = 'white'; 
+                        };
+                    }
+
+                    carName.addEventListener('mouseover', createMouseOverHandler(carName));
+                    
+                    function createMouseOutHandler(element) {
+                        return function () {
+                            element.style.color = ''; 
+                        };
+                    }
+
+                    carName.addEventListener('mouseout', createMouseOutHandler(carName));
+
                     carDiv.appendChild(carName);
                     carDiv.appendChild(carImage);
                     carDiv.appendChild(carColor);
@@ -62,7 +79,7 @@ function carButtons(parentElement) {
         dopeCountSpan.textContent = dopeCount === 1 ? '1 dope ' : `${dopeCount} dope`;
     
                    
-    })
+    });
 
     const carNopeButton = document.createElement("button")
         carNopeButton.textContent = "nope"
@@ -84,3 +101,5 @@ function carButtons(parentElement) {
     parentElement.appendChild(carNopeButton);
     parentElement.appendChild(nopeCountSpan);
 }
+
+
