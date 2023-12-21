@@ -31,21 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     carName.textContent = `${car.name}`;
 
 
-                    function createMouseOverHandler(element) {
+                    function createMouseOver(element) {
                         return function () {
                             element.style.color = 'white'; 
                         };
                     }
 
-                    carName.addEventListener('mouseover', createMouseOverHandler(carName));
+                    carName.addEventListener('mouseover', createMouseOver(carName));
                     
-                    function createMouseOutHandler(element) {
+                    function createMouseOut(element) {
                         return function () {
                             element.style.color = ''; 
                         };
                     }
 
-                    carName.addEventListener('mouseout', createMouseOutHandler(carName));
+                    carName.addEventListener('mouseout', createMouseOut(carName));
 
                     carDiv.appendChild(carName);
                     carDiv.appendChild(carImage);
@@ -102,4 +102,15 @@ function carButtons(parentElement) {
     parentElement.appendChild(nopeCountSpan);
 }
 
+function dragCars() {
 
+    carDiv.addEventListener('dragstart', function (event) {
+        //able to drag photos but not drop
+        event.dataTransfer.setData('text/plain', carName.textContent);
+    });
+
+    carDiv.addEventListener('dragover', function (event) {
+        event.preventDefault(); // Prevent default to allow drop
+    });
+
+}
