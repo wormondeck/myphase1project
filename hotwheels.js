@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Expected an array, but received:', data.car);
             }
         })
-        
+        .catch(error => console.error('Error fetching data:', error));
 
     }
 })
