@@ -104,8 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
 
 
+            } else {
+                console.error('Expected an array, but received:', data.car);
             }
         })
+        
+
     }
 })
 
