@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const carDiv = document.createElement('div');
                     carDiv.classList.add('car');
                     carDiv.draggable = true; 
+                    
+                    const carName = document.createElement('p');
+                    carName.textContent = `${car.name}`;
             
                     const carColor = document.createElement('p');
                     carColor.textContent = `Color: ${car.color}`;
@@ -28,13 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const carImage = document.createElement('img');
                     carImage.src = car.image;
 
-                    const carName = document.createElement('p');
-                    carName.textContent = `${car.name}`;
-
                     function dragCars() {
                     
                         carDiv.addEventListener('dragstart', function (event) {
-                            //able to drag photos but not drop
+                            
                             event.dataTransfer.setData('text/plain', carName.textContent);
                         });
                     
