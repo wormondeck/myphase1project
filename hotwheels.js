@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchAuto()
     
     function fetchAuto() {
-        fetch('http://127.0.0.1:5500/hotwheels.json')
+        fetch('http://localhost:3000/car')
         .then(resp => resp.json())
         .then(data => {
-            if (Array.isArray(data.car)) {
-                console.log(data.car)
+              {
+                console.log(data)
                 const carListContainer = document.getElementById('car-container');
                 carListContainer.innerHTML = '';
                 
-                data.car.forEach(car => {
+                data.forEach(car => {
 
                     const carDiv = document.createElement('div');
                     carDiv.classList.add('car');
@@ -104,11 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
 
 
-            } else {
-                console.error('Expected an array, but received:', data.car);
-            }
-        })
-        .catch(error => console.error('Error fetching data:', error));
+            
+        
 
     }
 })
@@ -150,4 +147,4 @@ function carButtons(parentElement) {
     parentElement.appendChild(carNopeButton);
     parentElement.appendChild(nopeCountSpan);
 }
-
+    }})

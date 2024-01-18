@@ -7,4 +7,4 @@ Included in the project:
     -Highlight the car name with mouseover.
     -Reorder cars by dragging a car card.
 
-This project runs on json-server --watch hotwheels.json
+This project runs on json-server --watch /Users/ronneyarias/My\ Code/files/myphase1project/hotwheels.json --port 3000
