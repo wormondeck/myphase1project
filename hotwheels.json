@@ -1,94 +1,84 @@
 {
-    "car": [
-    {
-        "id": 1,
-        "name": "Lamborghini Miura",
-        "color": "Blue",
-        "year": "1971",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0717.jpg"
-    },
-    {
-        "id": 2,
-        "name": "Tesla Model Y",
-        "color": "Gray",
-        "year": "2021",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0718.jpg"
-
-    },
-    {
-        "id": 3,
-        "name": "Karma GS-6",
-        "color": "Blue", 
-        "year": "2022",
-        "brand": "Matchbox",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0719.jpg"
-
-    },
-    {
-        "id": 4,
-        "name": "Porsche 718 Cayman GT4",
-        "color": "White",
-        "year": "2022",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0720.jpg"
-
-    },
-    {
-        "id": 5,
-        "name": "Lotus Emira",
-        "color": "Blue",
-        "year": "2021",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0721.jpg"
-
-    },
-    {
-        "id": 6,
-        "name": "Audi RS E-Tron GT",
-        "color": "Red",
-        "year": "2021",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0722.jpg"
-
-    },
-    {
-        "id": 7,
-        "name": "Lamborghini Sian FKP 37",
-        "color": "Green",
-        "year": "2021",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0723.jpg"
-
-    },
-    {
-        "id": 8,
-        "name": "BMW M4",
-        "color": "Gold",
-        "year": "2015",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0724.jpg"
-
-    },
-    {
-        "id": 9,
-        "name": "Nissan Z Proto",
-        "color": "Yellow",
-        "year": "2021",
-        "brand": "Hot Wheels",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0725.jpg"
-
-    },
-    {
-        "id": 10,
-        "name": "BMW 3 Series Touring",
-        "color": "Black",
-        "year": "2012",
-        "brand": "Matchbox",
-        "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0726.jpg"
-
-    }
-]
-
+    "cars": [
+        {
+            "id": 1,
+            "name": "Lamborghini Miura",
+            "color": "Blue",
+            "year": "1971",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0717.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Tesla Model Y",
+            "color": "Gray",
+            "year": "2021",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0718.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Karma GS-6",
+            "color": "Blue",
+            "year": "2022",
+            "brand": "Matchbox",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0719.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Porsche 718 Cayman GT4",
+            "color": "White",
+            "year": "2022",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0720.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Lotus Emira",
+            "color": "Blue",
+            "year": "2021",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0721.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Audi RS E-Tron GT",
+            "color": "Red",
+            "year": "2021",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0722.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Lamborghini Sian FKP 37",
+            "color": "Green",
+            "year": "2021",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0723.jpg"
+        },
+        {
+            "id": 8,
+            "name": "BMW M4",
+            "color": "Gold",
+            "year": "2015",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0724.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Nissan Z Proto",
+            "color": "Yellow",
+            "year": "2021",
+            "brand": "Hot Wheels",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0725.jpg"
+        },
+        {
+            "id": 10,
+            "name": "BMW 3 Series Touring",
+            "color": "Black",
+            "year": "2012",
+            "brand": "Matchbox",
+            "image": "/Users/ronneyarias/My Code/files/myphase1project/IMG_0726.jpg"
+        }
+    ]
 }

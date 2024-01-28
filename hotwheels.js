@@ -1,94 +1,68 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchAuto()
-    
-    function fetchAuto() {
-        fetch('http://localhost:3000/car')
+})
+
+function fetchAuto() {
+    fetch('http://localhost:3000/cars')
         .then(resp => resp.json())
         .then(data => {
-              {
+            {
                 console.log(data)
                 const carListContainer = document.getElementById('car-container');
-                carListContainer.innerHTML = '';
-                
+
                 data.forEach(car => {
 
                     const carDiv = document.createElement('div');
-                    carDiv.classList.add('car');
-                    carDiv.draggable = true; 
                     
+                    carDiv.classList.add('car');
+                    carDiv.draggable = true;
+
                     const carName = document.createElement('p');
                     carName.textContent = `${car.name}`;
-            
+
                     const carColor = document.createElement('p');
                     carColor.textContent = `Color: ${car.color}`;
-            
+
                     const carYear = document.createElement('p');
                     carYear.textContent = `Year: ${car.year}`;
-            
+
                     const carBrand = document.createElement('p');
                     carBrand.textContent = `Brand: ${car.brand}`;
-            
+
                     const carImage = document.createElement('img');
                     carImage.src = car.image;
 
-                    function dragCars() {
-                    
-                        carDiv.addEventListener('dragstart', function (event) {
-                            
-                            event.dataTransfer.setData('text/plain', carName.textContent);
-                        });
-                    
-                        carDiv.addEventListener('dragover', function (event) {
-                            event.preventDefault(); 
-                        });
-                    
-                        carDiv.addEventListener('dragenter', function () {
-                            carDiv.classList.add('dragged-over'); 
-                        });
-                    
-                        carDiv.addEventListener('dragleave', function () {
-                            carDiv.classList.remove('dragged-over'); 
-                        });
-                    
-                        carDiv.addEventListener('drop', function (event) {
-                            event.preventDefault();
-                    
-                            const draggedCarName = event.dataTransfer.getData('text/plain');
-                    
-                            
-                            const draggedCarElement = Array.from(carListContainer.children).find(element =>
-                                element.classList.contains('car') && element.querySelector('p').textContent === draggedCarName
-                            );
-                    
-                            
-                            if (draggedCarElement && draggedCarElement !== carDiv) {
-                                const container = carDiv.parentNode;
-                                const nextSibling = carDiv.nextSibling === draggedCarElement ? carDiv : carDiv.nextSibling;
-                                container.insertBefore(draggedCarElement, nextSibling);
-                            }
-                            
-                            carDiv.classList.remove('dragged-over');
-                        });
-                    
-                    }
+                    carName.addEventListener('mouseover', () => {
+                        carName.style.color = 'white';
+                    });
 
-                    dragCars()
+                    carName.addEventListener('mouseout', () => {
+                        carName.style.color = '';
+                    });
 
-                    function createMouseOver(element) {
-                        return function () {
-                            element.style.color = 'white'; 
-                        };
-                    }
+                    carDiv.addEventListener('dragstart', (e) => {
+                        e.dataTransfer.setData('text/plain', carName.textContent);
+                    });
 
-                    carName.addEventListener('mouseover', createMouseOver(carName));
-                    
-                    function createMouseOut(element) {
-                        return function () {
-                            element.style.color = ''; 
-                        };
-                    }
+                    carDiv.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                    });
+                    carDiv.addEventListener('drop', (e) => {
+                        e.preventDefault();
 
-                    carName.addEventListener('mouseout', createMouseOut(carName));
+                        const draggedCarName = e.dataTransfer.getData('text/plain');                       
+                        const draggedCarElement = Array.from(carListContainer.children).find(element =>
+                            element.classList.contains('car') && element.querySelector('p').textContent === draggedCarName
+                        );
+                            console.log(draggedCarElement)
+                        if (draggedCarElement && draggedCarElement !== carDiv) {
+                            const container = carDiv.parentNode;
+                            const nextSibling = carDiv.nextSibling === draggedCarElement ? carDiv : carDiv.nextSibling;                          
+                            container.insertBefore(draggedCarElement, nextSibling);
+                        }
+
+                    });
+
 
                     carDiv.appendChild(carName);
                     carDiv.appendChild(carImage);
@@ -96,55 +70,50 @@ document.addEventListener('DOMContentLoaded', () => {
                     carDiv.appendChild(carYear);
                     carDiv.appendChild(carBrand);
                     carButtons(carDiv)
-                    
+
                     carListContainer.appendChild(carDiv);
 
-                   
-
                 })
+            }
 
+        })
 
-            
-        
+    function carButtons(parentElement) {
 
-    }
-})
-
-function carButtons(parentElement) {
-    
-    const carDopeButton = document.createElement('button');
+        const carDopeButton = document.createElement('button');
         carDopeButton.textContent = 'dope';
 
-    const dopeCountSpan = document.createElement('span');
+        const dopeCountSpan = document.createElement('span');
         dopeCountSpan.textContent = '0 hope  ';
 
-    let dopeCount = 0;
+        let dopeCount = 0;
 
-    carDopeButton.addEventListener('click', function () {
-        dopeCount++;
-        dopeCountSpan.textContent = dopeCount === 1 ? '1 dope ' : `${dopeCount} dope`;
-    
-                   
-    });
+        carDopeButton.addEventListener('click', () => {
+            dopeCount++;
+            dopeCountSpan.textContent = dopeCount === 1 ? '1 dope ' : `${dopeCount} dope`;
 
-    const carNopeButton = document.createElement("button")
+
+        });
+
+        const carNopeButton = document.createElement("button")
         carNopeButton.textContent = "nope"
 
-    const nopeCountSpan = document.createElement('span');
+        const nopeCountSpan = document.createElement('span');
         nopeCountSpan.textContent = '  0 hope';
 
-    let nopeCount = 0;
+        let nopeCount = 0;
 
-    carNopeButton.addEventListener('click', function () {
-        nopeCount++;
-        nopeCountSpan.textContent = nopeCount === 1 ? ' 1 nope' : `${nopeCount} nope`;
+        carNopeButton.addEventListener('click', () => {
+            nopeCount++;
+            nopeCountSpan.textContent = nopeCount === 1 ? ' 1 nope' : `${nopeCount} nope`;
 
-                    
-    });
 
-    parentElement.appendChild(dopeCountSpan);
-    parentElement.appendChild(carDopeButton);
-    parentElement.appendChild(carNopeButton);
-    parentElement.appendChild(nopeCountSpan);
+        });
+
+        parentElement.appendChild(dopeCountSpan);
+        parentElement.appendChild(carDopeButton);
+        parentElement.appendChild(carNopeButton);
+        parentElement.appendChild(nopeCountSpan);
+    }
 }
-    }})
+
